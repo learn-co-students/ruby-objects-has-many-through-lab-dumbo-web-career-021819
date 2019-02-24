@@ -1,6 +1,3 @@
-require_relative "artist"
-require_relative "genre"
-
 class Song
 
 attr_accessor :name, :artist, :genre

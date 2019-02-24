@@ -1,6 +1,3 @@
-require_relative "artist"
-require_relative "song"
-
 class Genre
 
 attr_reader :name
@@ -11,20 +8,16 @@ def initialize(name)
   @@all << self
 end
 
-def self.all
-  @@all
-end
-
 def songs
-  Song.all.select do |each_song|
-    each_song.genre == self
-end
+  Song.all.select {|each_song| each_song.genre == self}
 end
 
 def artists
-  songs.map do |each_song|
-    each_song.artist
+  songs.map {|each_song| each_song.artist}
 end
+
+def self.all
+  @@all
 end
 
 end

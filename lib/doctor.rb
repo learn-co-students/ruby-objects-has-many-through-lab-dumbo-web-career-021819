@@ -1,14 +1,10 @@
-require 'pry'
-require_relative 'appointment'
-require_relative 'patient'
-
 class Doctor
 
 attr_reader :name
-@@all =[]
+@@all = []
 
 def initialize(name)
-  @name = name
+  @name =  name
   @@all << self
 end
 
@@ -17,20 +13,15 @@ def new_appointment(patient, date)
 end
 
 def appointments
-  Appointment.all.select do |each_app|
-    each_app.doctor == self
-  end
+  Appointment.all.select {|each_apt| each_apt.doctor == self}
 end
 
 def patients
-  appointments.map do |each_app|
-    each_app.patient
-end
+  appointments.map {|each_apt| each_apt.patient}
 end
 
 def self.all
   @@all
 end
-
 
 end

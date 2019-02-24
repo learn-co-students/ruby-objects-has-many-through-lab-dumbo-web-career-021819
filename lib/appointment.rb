@@ -1,10 +1,6 @@
-require 'pry'
-require_relative 'doctor'
-require_relative 'patient'
-
 class Appointment
 
-attr_accessor :date, :patient, :doctor
+attr_reader :date, :patient, :doctor
 @@all = []
 
 def initialize(date, patient, doctor)
@@ -15,7 +11,7 @@ def initialize(date, patient, doctor)
 end
 
 def self.all
-  @@all
+ @@all
 end
 
 end

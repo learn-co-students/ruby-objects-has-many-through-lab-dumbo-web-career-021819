@@ -1,7 +1,3 @@
-require 'pry'
-require_relative 'appointment'
-require_relative 'doctor'
-
 class Patient
 
 attr_reader :name
@@ -17,15 +13,11 @@ def new_appointment(doctor, date)
 end
 
 def appointments
-  Appointment.all.select do |each_app|
-    each_app.patient == self
-end
+  Appointment.all.select {|each_apt| each_apt.patient == self}
 end
 
 def doctors
-  appointments.map do |each_app|
-    each_app.doctor
-end
+  appointments.map {|each_apt| each_apt.doctor}
 end
 
 def self.all
