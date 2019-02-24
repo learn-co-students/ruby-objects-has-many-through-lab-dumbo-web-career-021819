@@ -1,0 +1,18 @@
+require "pry"
+
+class Appointment
+  attr_reader :patient, :date, :doctor
+  @@all = []
+
+  def initialize(date,patient,doctor) #patient and doctor will be objects
+    @date = date
+    @patient = patient
+    @doctor = doctor
+    @@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+end
